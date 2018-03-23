@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS3," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CSS3选择器class有两个缺点:  class本身没有语义,纯粹用来为CSS服务,属于多余属性  class属性没有把样式与元素绑定起来,针对同一个class,文本框、段落、按钮等均可以使用,显得很混乱,修改时也很不方便">
+<meta name="keywords" content="CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3选择器">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/css3选择器/index.html">
+<meta property="og:site_name" content="Chunhuaqiushi">
+<meta property="og:description" content="CSS3选择器class有两个缺点:  class本身没有语义,纯粹用来为CSS服务,属于多余属性  class属性没有把样式与元素绑定起来,针对同一个class,文本框、段落、按钮等均可以使用,显得很混乱,修改时也很不方便">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-23T06:24:38.169Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3选择器">
+<meta name="twitter:description" content="CSS3选择器class有两个缺点:  class本身没有语义,纯粹用来为CSS服务,属于多余属性  class属性没有把样式与元素绑定起来,针对同一个class,文本框、段落、按钮等均可以使用,显得很混乱,修改时也很不方便">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/23/css3选择器/"/>
+
+
+
+
+
+  <title>CSS3选择器 | Chunhuaqiushi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chunhuaqiushi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/css3选择器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huashi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chunhuaqiushi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS3选择器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T14:16:09+08:00">
+                2018-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS3/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS3</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="CSS3选择器"><a href="#CSS3选择器" class="headerlink" title="CSS3选择器"></a>CSS3选择器</h2><p>class有两个缺点:</p>
+<ol>
+<li><p>class本身没有语义,纯粹用来为CSS服务,属于多余属性</p>
+</li>
+<li><p>class属性没有把样式与元素绑定起来,针对同一个class,文本框、段落、按钮等均可以使用,显得很混乱,修改时也很不方便</p>
+<a id="more"></a>
+</li>
+</ol>
+<hr>
+<p><strong>CSS3提倡使用选择器来将样式与元素直接绑定起来</strong></p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input[type=&apos;button&apos;]</span><br></pre></td></tr></table></figure>
+<p>CSS3追加了三个属性选择器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. [att*=val] (包含字符匹配)</span><br><span class="line">2. [att^=val] (开头字符匹配)</span><br><span class="line">3. [att$=val] (结尾字符匹配)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="结构性伪类选择器"><a href="#结构性伪类选择器" class="headerlink" title="结构性伪类选择器"></a>结构性伪类选择器</h3><h4 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h4><ul>
+<li>a:link</li>
+<li>a:hover</li>
+<li>a:visited</li>
+<li>a:active</li>
+</ul>
+<h4 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h4><ul>
+<li>:first-line</li>
+<li>:first-letter</li>
+<li>:before</li>
+<li>:after</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    li:before&#123;</span><br><span class="line">    	content: &apos;@&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	li:after&#123;</span><br><span class="line">	    content: &quot;$end&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="选择器root-not-empty-target"><a href="#选择器root-not-empty-target" class="headerlink" title="选择器root,not,empty,target"></a>选择器root,not,empty,target</h4><ul>
+<li>:root指定整个网页</li>
+<li>:not </li>
+<li>:empty 元素中内容为空白</li>
+<li>:target 跳转到target元素后起作用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;a href=&quot;#t1&quot;&gt;huashi&lt;/a&gt;</span><br><span class="line">	&lt;a href=&quot;#t2&quot;&gt;cunhua&lt;/a&gt;</span><br><span class="line">	&lt;a href=&quot;#t3&quot;&gt;keji&lt;/a&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">    	&lt;div id=&quot;t1&quot;&gt;qeweqwe&lt;/div&gt;</span><br><span class="line">	    &lt;div id=&quot;t2&quot;&gt;dsfdsfds&lt;/div&gt;</span><br><span class="line">	    &lt;div id=&quot;t3&quot;&gt;dfdsfdsfdsfds&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;style&gt;</span><br><span class="line">	  :target&#123;</span><br><span class="line">	    color: red;</span><br><span class="line">	  &#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="选择器first-child-last-child-nth-child-nth-last-child"><a href="#选择器first-child-last-child-nth-child-nth-last-child" class="headerlink" title="选择器first-child,last-child,nth-child,nth-last-child"></a>选择器first-child,last-child,nth-child,nth-last-child</h4><ul>
+<li>first-child</li>
+<li>last-child</li>
+<li>nth-child</li>
+<li>nth-last-child</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    li:nth-child(4n)&#123;</span><br><span class="line">	    color: red;</span><br><span class="line">	&#125;</span><br><span class="line">	li:nth-child(4n+1)&#123;</span><br><span class="line">	    color: lime;</span><br><span class="line">	&#125;</span><br><span class="line">	li:nth-child(4n+2)&#123;</span><br><span class="line">	    color: #ccc;</span><br><span class="line">	&#125;</span><br><span class="line">	li:nth-child(4n+3)&#123;</span><br><span class="line">	   color: #444;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="选择器nth-of-type和nth-last-of-type"><a href="#选择器nth-of-type和nth-last-of-type" class="headerlink" title="选择器nth-of-type和nth-last-of-type"></a>选择器nth-of-type和nth-last-of-type</h4><p>nth-child会带来问题,问题产生的原因:nth-child选择器在计算子元素时是连同父元素的所有子元素一起计算的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    li:nth-of-type(odd)&#123;</span><br><span class="line">	    color: skyblue;</span><br><span class="line">	&#125;</span><br><span class="line">	li:nth-of-type(even)&#123;</span><br><span class="line">	    color: skyblue;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="选择器only-child"><a href="#选择器only-child" class="headerlink" title="选择器only-child"></a>选择器only-child</h4><p><strong>某一个父元素中只有一个子元素使用的样式</strong></p>
+<hr>
+<h3 id="UI元素状态伪类选择器"><a href="#UI元素状态伪类选择器" class="headerlink" title="UI元素状态伪类选择器"></a>UI元素状态伪类选择器</h3><p><strong>指定的样式只有当元素处于某种状态下才起作用,默认状态下不起作用</strong></p>
+<h4 id="伪类选择器E-hover-E-active-E-focus"><a href="#伪类选择器E-hover-E-active-E-focus" class="headerlink" title="伪类选择器E:hover,E:active,E:focus"></a>伪类选择器E:hover,E:active,E:focus</h4><h5 id="伪类选择器E-enabled-E-disabled"><a href="#伪类选择器E-enabled-E-disabled" class="headerlink" title="伪类选择器E:enabled,E:disabled"></a>伪类选择器E:enabled,E:disabled</h5><p>分别用来指定元素处于可用和不可用状态时的样式</p>
+<h4 id="伪类选择器E-read-only-E-read-write"><a href="#伪类选择器E-read-only-E-read-write" class="headerlink" title="伪类选择器E:read-only,E:read-write"></a>伪类选择器E:read-only,E:read-write</h4><h4 id="伪类选择器E-checked-E-default"><a href="#伪类选择器E-checked-E-default" class="headerlink" title="伪类选择器E:checked,E:default"></a>伪类选择器E:checked,E:default</h4><h4 id="伪类选择器E-selection"><a href="#伪类选择器E-selection" class="headerlink" title="伪类选择器E::selection"></a>伪类选择器E::selection</h4><p>用来指定元素处于选中状态时的样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    p::selection&#123;</span><br><span class="line">	    color:red;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<h5 id="伪类选择器E-invalid-E-valid"><a href="#伪类选择器E-invalid-E-valid" class="headerlink" title="伪类选择器E:invalid,E:valid"></a>伪类选择器E:invalid,E:valid</h5><p>当元素内容不能通过HTML5通过使用元素的诸如required,pattern等属性所指定的检查或元素内容不符合元素的规定格式(例如通过使用type属性值为email的input元素来限定元素内容必须为有效的email格式)时的样式</p>
+<h5 id="伪类选择器E-required-E-optional"><a href="#伪类选择器E-required-E-optional" class="headerlink" title="伪类选择器E:required,E:optional"></a>伪类选择器E:required,E:optional</h5><hr>
+<h3 id="通用兄弟元素选择器"><a href="#通用兄弟元素选择器" class="headerlink" title="通用兄弟元素选择器"></a>通用兄弟元素选择器</h3><ul>
+<li>div~p   </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS3/" rel="tag"><i class="fa fa-tag"></i>
+
+ CSS3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/19/1/" rel="next" title="ES6必知必会(1)">
+                <i class="fa fa-chevron-left"></i> ES6必知必会(1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="huashi" />
+            
+              <p class="site-author-name" itemprop="name">huashi</p>
+              <p class="site-description motion-element" itemprop="description">学而时习之，不亦乐乎？</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3选择器"><span class="nav-number">1.</span> <span class="nav-text">CSS3选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-number">1.1.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构性伪类选择器"><span class="nav-number">1.2.</span> <span class="nav-text">结构性伪类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类选择器"><span class="nav-number">1.2.1.</span> <span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪元素选择器"><span class="nav-number">1.2.2.</span> <span class="nav-text">伪元素选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择器root-not-empty-target"><span class="nav-number">1.2.3.</span> <span class="nav-text">选择器root,not,empty,target</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择器first-child-last-child-nth-child-nth-last-child"><span class="nav-number">1.2.4.</span> <span class="nav-text">选择器first-child,last-child,nth-child,nth-last-child</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择器nth-of-type和nth-last-of-type"><span class="nav-number">1.2.5.</span> <span class="nav-text">选择器nth-of-type和nth-last-of-type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择器only-child"><span class="nav-number">1.2.6.</span> <span class="nav-text">选择器only-child</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI元素状态伪类选择器"><span class="nav-number">1.3.</span> <span class="nav-text">UI元素状态伪类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类选择器E-hover-E-active-E-focus"><span class="nav-number">1.3.1.</span> <span class="nav-text">伪类选择器E:hover,E:active,E:focus</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#伪类选择器E-enabled-E-disabled"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">伪类选择器E:enabled,E:disabled</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类选择器E-read-only-E-read-write"><span class="nav-number">1.3.2.</span> <span class="nav-text">伪类选择器E:read-only,E:read-write</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类选择器E-checked-E-default"><span class="nav-number">1.3.3.</span> <span class="nav-text">伪类选择器E:checked,E:default</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类选择器E-selection"><span class="nav-number">1.3.4.</span> <span class="nav-text">伪类选择器E::selection</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#伪类选择器E-invalid-E-valid"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">伪类选择器E:invalid,E:valid</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#伪类选择器E-required-E-optional"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">伪类选择器E:required,E:optional</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用兄弟元素选择器"><span class="nav-number">1.4.</span> <span class="nav-text">通用兄弟元素选择器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huashi</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
