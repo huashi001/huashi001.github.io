@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="let和const let 同一作用域不能定义相同的变量 块级作用域   const 定义常量(只读)">
+<meta name="description" content="let和const let 同一作用域不能定义相同的变量 块级作用域 不存在变量提升   const 定义常量(只读)">
 <meta name="keywords" content="JavaScript,ECMAScript6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6必知必会(1)">
 <meta property="og:url" content="http://yoursite.com/2018/03/19/1/index.html">
 <meta property="og:site_name" content="Chunhuaqiushi">
-<meta property="og:description" content="let和const let 同一作用域不能定义相同的变量 块级作用域   const 定义常量(只读)">
+<meta property="og:description" content="let和const let 同一作用域不能定义相同的变量 块级作用域 不存在变量提升   const 定义常量(只读)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-23T06:20:50.797Z">
+<meta property="og:updated_time" content="2018-03-28T05:04:45.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6必知必会(1)">
-<meta name="twitter:description" content="let和const let 同一作用域不能定义相同的变量 块级作用域   const 定义常量(只读)">
+<meta name="twitter:description" content="let和const let 同一作用域不能定义相同的变量 块级作用域 不存在变量提升   const 定义常量(只读)">
 
 
 
@@ -356,6 +356,7 @@
 <li>let<ul>
 <li>同一作用域不能定义相同的变量</li>
 <li>块级作用域</li>
+<li>不存在变量提升</li>
 </ul>
 </li>
 <li>const<ul>
@@ -363,6 +364,9 @@
 </ul>
 </li>
 </ul>
+<p>解释一下变量提升<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">var a=12;</span><br></pre></td></tr></table></figure></p>
+<p>上述代码输出undefined,因为相当于执行了下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a;</span><br><span class="line">console.log(a);</span><br><span class="line">a=12;</span><br></pre></td></tr></table></figure></p>
+<p>但是用let不存在变量提升，所以下面的代码会报错”a is not defined”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">let a=12;</span><br></pre></td></tr></table></figure></p>
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
 <li>模板字面量用一对`包裹，要插入的变量放在${}中</li>
 </ul>
