@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Ajax," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. ajax是什么？ Asynchronous Javascript And XML （异步的JavaScript和XML） 它并不是一种单一的技术，而是有机利用一系列交互式网页应用相关的技术所形成的结合体">
+<meta name="keywords" content="Ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax总结">
+<meta property="og:url" content="http://yoursite.com/2018/04/03/ajax/index.html">
+<meta property="og:site_name" content="Chunhuaqiushi">
+<meta property="og:description" content="1. ajax是什么？ Asynchronous Javascript And XML （异步的JavaScript和XML） 它并不是一种单一的技术，而是有机利用一系列交互式网页应用相关的技术所形成的结合体">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-03T15:23:35.957Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ajax总结">
+<meta name="twitter:description" content="1. ajax是什么？ Asynchronous Javascript And XML （异步的JavaScript和XML） 它并不是一种单一的技术，而是有机利用一系列交互式网页应用相关的技术所形成的结合体">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/03/ajax/"/>
+
+
+
+
+
+  <title>ajax总结 | Chunhuaqiushi</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chunhuaqiushi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/03/ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huashi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chunhuaqiushi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ajax总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T21:45:38+08:00">
+                2018-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-ajax是什么？"><a href="#1-ajax是什么？" class="headerlink" title="1. ajax是什么？"></a>1. ajax是什么？</h2><ul>
+<li>Asynchronous Javascript And XML （异步的<br>JavaScript和XML）</li>
+<li>它并不是一种单一的技术，而是有机利用一系列交互式网页应用相关的技术所形成的结合体<a id="more"></a></li>
+<li>AJAX 是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新</li>
+</ul>
+<hr>
+<h2 id="2-ajax优点"><a href="#2-ajax优点" class="headerlink" title="2. ajax优点"></a>2. ajax优点</h2><ul>
+<li>页面无刷新，用户体验好</li>
+<li>异步通信，更加快的响应能力</li>
+<li>减少冗余请求，减轻了服务器负担</li>
+<li>基于标准化的并被广泛支持的技术，不需要下载插件</li>
+</ul>
+<hr>
+<h2 id="3-原生js-ajax请求有几个步骤？分别是什么"><a href="#3-原生js-ajax请求有几个步骤？分别是什么" class="headerlink" title="3. 原生js ajax请求有几个步骤？分别是什么?"></a>3. 原生js ajax请求有几个步骤？分别是什么?</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 创建 XMLHttpRequest 对象</span><br><span class="line">var ajax = new XMLHttpRequest();</span><br><span class="line">// 规定请求的类型、URL 以及是否异步处理请求。</span><br><span class="line">ajax.open(&apos;GET&apos;,url,true);</span><br><span class="line">// 发送信息至服务器时内容编码类型</span><br><span class="line">ajax.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;); </span><br><span class="line">//发送请求</span><br><span class="line">ajax.send(null);  </span><br><span class="line">// 接受服务器响应数据</span><br><span class="line">ajax.onreadystatechange = function () &#123;</span><br><span class="line">    if (obj.readyState == 4 &amp;&amp; (obj.status == 200 || obj.status == 304)) &#123; </span><br><span class="line">        //to-do</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="4-ajax几种请求方式？他们的优缺点？"><a href="#4-ajax几种请求方式？他们的优缺点？" class="headerlink" title="4. ajax几种请求方式？他们的优缺点？"></a>4. ajax几种请求方式？他们的优缺点？</h2><p>主要介绍get和post<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- 代码上的区别</span><br><span class="line">   1:get通过url传递参数</span><br><span class="line">   2:post设置请求头  规定请求数据类型</span><br><span class="line">- 使用上的区别</span><br><span class="line">   1:post比get安全(因为post参数在请求体中,get参数在url上面)</span><br><span class="line">   2:get传输速度比post快,根据传参决定的。</span><br><span class="line">   3:post传输文件理论没有限制,get传输文件小大概7-8k ie4k左右</span><br><span class="line">   4:get获取数据,post上传数据</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="5-什么情况造成跨域？"><a href="#5-什么情况造成跨域？" class="headerlink" title="5. 什么情况造成跨域？"></a>5. 什么情况造成跨域？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不同源就会造成跨域,协议、域名、端口号、ip地址和网址不同都会造成跨域</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="6-跨域解决方案有哪些？"><a href="#6-跨域解决方案有哪些？" class="headerlink" title="6. 跨域解决方案有哪些？"></a>6. 跨域解决方案有哪些？</h2><ol>
+<li><p>jsonp 只能解决get跨域<br>原理：动态创建一个script标签。利用script标签的src属性不受同源策略限制。因为所有的src属性和href属性都不受同源策略限制。可以请求第三方服务器数据内容。<br>步骤：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">创建一个script标签</span><br><span class="line">script的src属性设置接口地址</span><br><span class="line">接口参数,必须要带一个自定义函数名 要不然后台无法返回数据。</span><br><span class="line">通过定义函数名去接收后台返回数据</span><br><span class="line"></span><br><span class="line">// 去创建一个script标签</span><br><span class="line">var  script = document.createElement(&quot;script&quot;);</span><br><span class="line">//script的src属性设置接口地址 并带一个callback回调函数名称</span><br><span class="line">script.src = &quot;http://127.0.0.1:8888/index.php?callback=jsonpCallback&quot;;</span><br><span class="line">// 插入到页面</span><br><span class="line">document.head.appendChild(script);</span><br><span class="line">// 通过定义函数名去接收后台返回数据</span><br><span class="line">function jsonpCallback(data)&#123;</span><br><span class="line">    //注意  jsonp返回的数据是json对象可以直接使用</span><br><span class="line">    //ajax  取得数据是json字符串需要转换成json对象才可以使用。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CORS：跨域资源共享</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">原理：服务器设置Access-Control-Allow-OriginHTTP响应头之后，浏览器将会允许跨域请求</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">限制：浏览器需要支持HTML5，可以支持POST，PUT等方法兼容ie9以上</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">需要后台设置</span><br><span class="line">Access-Control-Allow-Origin: *              //允许所有域名访问，或者</span><br><span class="line">Access-Control-Allow-Origin: http://a.com   //只允许所有域名访问</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h2 id="7-http常见状态码有哪些？"><a href="#7-http常见状态码有哪些？" class="headerlink" title="7. http常见状态码有哪些？"></a>7. http常见状态码有哪些？</h2><ul>
+<li><p>2开头状态码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2xx (成功)表示成功处理了请求的状态代码</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3开头状态码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3xx (重定向) 表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</span><br><span class="line"></span><br><span class="line">304 (未修改) 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4开头状态码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4xx(请求错误) 这些状态代码表示请求可能出错，妨碍了服务器的处理</span><br><span class="line"></span><br><span class="line">400 (错误请求) 服务器不理解请求的语法。</span><br><span class="line"> </span><br><span class="line">403 (禁止) 服务器拒绝请求。</span><br><span class="line"></span><br><span class="line">404 (未找到) 服务器找不到请求的网页。</span><br><span class="line"></span><br><span class="line">414   （请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法处理。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5开头状态码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">5xx(服务器错误)这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错</span><br><span class="line"></span><br><span class="line">500 (服务器内部错误) 服务器遇到错误，无法完成请求。</span><br><span class="line"></span><br><span class="line">501 (尚未实施) 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</span><br><span class="line"></span><br><span class="line">502 (错误网关) 服务器作为网关或代理，从上游服务器收到无效响应。</span><br><span class="line"></span><br><span class="line">503 (服务不可用) 服务器目前无法使用(由于超载或停机维护)。 通常，这只是暂时状态。</span><br><span class="line"></span><br><span class="line">504 (网关超时) 服务器作为网关或代理，但是没有及时从上游服务器收到请求。</span><br><span class="line"></span><br><span class="line">505 (HTTP 版本不受支持) 服务器不支持请求中所用的 HTTP 协议版本。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="8-HTTP请求报文与响应报文格式"><a href="#8-HTTP请求报文与响应报文格式" class="headerlink" title="8. HTTP请求报文与响应报文格式"></a>8. HTTP请求报文与响应报文格式</h2><p>请求报文包含三部分：</p>
+<ul>
+<li><p>a、请求行：包含请求方法、URI、HTTP版本信息</p>
+</li>
+<li><p>b、请求首部字段</p>
+</li>
+<li><p>c、请求内容实体</p>
+</li>
+</ul>
+<p>响应报文包含三部分：</p>
+<ul>
+<li><p>a、状态行：包含HTTP版本、状态码、状态码的原因短语</p>
+</li>
+<li><p>b、响应首部字段</p>
+</li>
+<li><p>c、响应内容实体</p>
+</li>
+</ul>
+<hr>
+<h2 id="9-常用的HTTP方法有哪些？"><a href="#9-常用的HTTP方法有哪些？" class="headerlink" title="9. 常用的HTTP方法有哪些？"></a>9. 常用的HTTP方法有哪些？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET： 用于请求访问已经被URI（统一资源标识符）识别的资源，可以通过URL传参给服务器。</span><br><span class="line"></span><br><span class="line">POST：用于传输信息给服务器，主要功能与GET方法类似，但一般推荐使用POST方式。</span><br><span class="line"></span><br><span class="line">PUT： 传输文件，报文主体中包含文件内容，保存到对应URI位置。</span><br><span class="line"></span><br><span class="line">HEAD： 获得报文首部，与GET方法类似，只是不返回报文主体，一般用于验证URI是否有效。</span><br><span class="line"></span><br><span class="line">DELETE：删除文件，与PUT方法相反，删除对应URI位置的文件。</span><br><span class="line"></span><br><span class="line">OPTIONS：查询相应URI支持的HTTP方法。</span><br></pre></td></tr></table></figure>
+<hr>
+<p>文章参考：<a href="https://juejin.im/post/5aa2b26b518825556020873f" target="_blank" rel="noopener">https://juejin.im/post/5aa2b26b518825556020873f</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ajax/" rel="tag"><i class="fa fa-tag"></i>
+
+ Ajax</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/31/原始类型与引用类型/" rel="next" title="原始类型与引用类型">
+                <i class="fa fa-chevron-left"></i> 原始类型与引用类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="huashi" />
+            
+              <p class="site-author-name" itemprop="name">huashi</p>
+              <p class="site-description motion-element" itemprop="description">学而时习之，不亦乐乎？</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huashi</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
