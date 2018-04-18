@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端性能优化," />
+  <meta name="keywords" content="正则表达式," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1. 网页内容 减少Dom数量 减少Http请求次数 减少DNS查询次数 缓存Ajax 减少或者不使用iframe">
-<meta name="keywords" content="前端性能优化">
+<meta name="description" content="1. 什么是正则表达式？正则表达式（Regular Expression）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。 搜索模式可用于文本搜索和文本替换。">
+<meta name="keywords" content="正则表达式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端性能优化(1)">
-<meta property="og:url" content="http://yoursite.com/2018/03/26/前端性能优化/index.html">
+<meta property="og:title" content="正则表达式(1)">
+<meta property="og:url" content="http://yoursite.com/2018/04/10/正则表达式/index.html">
 <meta property="og:site_name" content="Chunhuaqiushi">
-<meta property="og:description" content="1. 网页内容 减少Dom数量 减少Http请求次数 减少DNS查询次数 缓存Ajax 减少或者不使用iframe">
+<meta property="og:description" content="1. 什么是正则表达式？正则表达式（Regular Expression）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。 搜索模式可用于文本搜索和文本替换。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-04T07:27:00.592Z">
+<meta property="og:updated_time" content="2018-04-18T16:21:28.509Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端性能优化(1)">
-<meta name="twitter:description" content="1. 网页内容 减少Dom数量 减少Http请求次数 减少DNS查询次数 缓存Ajax 减少或者不使用iframe">
+<meta name="twitter:title" content="正则表达式(1)">
+<meta name="twitter:description" content="1. 什么是正则表达式？正则表达式（Regular Expression）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。 搜索模式可用于文本搜索和文本替换。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/26/前端性能优化/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/10/正则表达式/"/>
 
 
 
 
 
-  <title>前端性能优化(1) | Chunhuaqiushi</title>
+  <title>正则表达式(1) | Chunhuaqiushi</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/前端性能优化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/10/正则表达式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huashi">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端性能优化(1)</h1>
+          <h1 class="post-title" itemprop="name headline">正则表达式(1)</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T13:22:47+08:00">
-                2018-03-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T19:07:51+08:00">
+                2018-04-10
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Web开发</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -352,36 +352,52 @@
       
 
       
-        <h2 id="1-网页内容"><a href="#1-网页内容" class="headerlink" title="1. 网页内容"></a>1. 网页内容</h2><ul>
-<li>减少Dom数量</li>
-<li>减少Http请求次数</li>
-<li>减少DNS查询次数</li>
-<li>缓存Ajax</li>
-<li>减少或者不使用iframe<a id="more"></a></li>
-<li>提前加载</li>
-<li>避免404<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">减少或者不使用iframe的原因：</span><br><span class="line">  (1)阻塞onload事件</span><br><span class="line">  (2)耗费性能</span><br><span class="line">  (3)iframe 中的资源有可能占用了可用连接而阻塞了主页面的资源加载</span><br></pre></td></tr></table></figure>
-</li>
+        <h2 id="1-什么是正则表达式？"><a href="#1-什么是正则表达式？" class="headerlink" title="1. 什么是正则表达式？"></a>1. 什么是正则表达式？</h2><p>正则表达式（Regular Expression）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。</p>
+<p>搜索模式可用于文本搜索和文本替换。<a id="more"></a></p>
+<hr>
+<h2 id="2-语法"><a href="#2-语法" class="headerlink" title="2. 语法"></a>2. 语法</h2><h3 id="2-1-基本元字符"><a href="#2-1-基本元字符" class="headerlink" title="2.1 基本元字符"></a>2.1 基本元字符</h3><ul>
+<li>. : 匹配除了换行符之外的任何单个字符</li>
+<li>\ : 在非特殊字符之前的反斜杠表示下一个字符是特殊的，不能从字面上解释。例如，没有前\的’b’通常匹配小写’b’，无论它们出现在哪里。如果加了’\’,这个字符变成了一个特殊意义的字符，反斜杠也可以将其后的特殊字符，转义为字面量。例如，模式 /a<em>/ 代表会匹配 0 个或者多个 a。相反，模式 /a\</em>/ 将 ‘<em>‘ 的特殊性移除，从而可以匹配像 “a</em>“ 这样的字符串。</li>
+<li>| : 逻辑或操作符</li>
+<li>[] : 定义一个字符集合，匹配字符集合中的一个字符，在字符集合里面像 .，\这些字符都表示其本身</li>
+<li>[^] : 对上面一个集合取非</li>
+<li>- :  定义一个区间，例如[A-Z]，其首尾字符在 ASCII 字符集里面</li>
 </ul>
-<h2 id="2-CSS优化"><a href="#2-CSS优化" class="headerlink" title="2. CSS优化"></a>2. CSS优化</h2><ul>
-<li>将样式表置顶</li>
-<li>避免CSS表达式</li>
-<li>使用link代替@import</li>
-<li>注意CSS书写顺序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CSS书写顺序：</span><br><span class="line">  1. 位置属性(position, top, right, z-index,</span><br><span class="line">display, float等)　　</span><br><span class="line">  2. 大小(width, height, padding, margin)　</span><br><span class="line">  3. 文字系列(font, line-height, letter-spacing,</span><br><span class="line">color, text-align等)　</span><br><span class="line">  4. 背景(background, border等)　</span><br><span class="line">  5. 其他(animation, transition等)</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="2-2-位置元字符"><a href="#2-2-位置元字符" class="headerlink" title="2.2 位置元字符"></a>2.2 位置元字符</h3><ul>
+<li>^ ： 单独使用匹配表达式的开始</li>
+<li>$ ： 匹配表达式的结束</li>
+<li>\b：匹配单词边界</li>
+<li>\B：匹配非单词边界</li>
+<li>(?=p)：匹配 p 前面的位置</li>
+<li>(?!p)：匹配不是 p 前面的位置</li>
 </ul>
-<h2 id="3-JavaScript"><a href="#3-JavaScript" class="headerlink" title="3. JavaScript"></a>3. JavaScript</h2><ul>
-<li>脚本置底</li>
-<li>减少Dom操作，使用变量保存Dom对象</li>
-<li>javascript代码注意：谨慎使用with,避免使用eval Function函数,减少作用域链查找</li>
-<li>将JavaScript和CSS作为外部文件来引用：在实际应用中使用外部文件可以提高页面速度，因为JavaScript和CSS文件都能在浏览器中产生缓存</li>
+<h3 id="2-3-数量元字符"><a href="#2-3-数量元字符" class="headerlink" title="2.3 数量元字符"></a>2.3 数量元字符</h3><ul>
+<li>{m,n} ：匹配前面一个字符至少 m 次至多 n 次重复，还有{m}表示匹配 m 次，{m,}表示至少 m 次</li>
+<li>+ ： 匹配前面一个表达式一次或者多次，相当于 {1,}，记忆方式追加(+)，起码得有一次</li>
+<li>* ： 匹配前面一个表达式零次或者多次，相当于 {0,}，记忆方式乘法(*)，可以一次都没有</li>
+<li>? ： 单独使用匹配前面一个表达式零次或者一次，相当于 {0,1}，记忆方式，有吗？，有(1)或者没有(1)，如果跟在任何量词*,+,?,{}后面的时候将会使量词变为非贪婪模式（尽量匹配少的字符），默认是使用贪婪模式。比如对 “123abc” 应用 /\d+/ 将会返回 “123”，如果使用 /\d+?/,那么就只会匹配到 “1”。</li>
 </ul>
-<h2 id="4-图片优化"><a href="#4-图片优化" class="headerlink" title="4. 图片优化"></a>4. 图片优化</h2><ul>
-<li>优化图片</li>
-<li>优化CSS Sprites</li>
-<li>不要在HTML中使用缩放图片</li>
-<li>favicon.ico要小而且可缓存</li>
+<h3 id="2-4-特殊元字符"><a href="#2-4-特殊元字符" class="headerlink" title="2.4 特殊元字符"></a>2.4 特殊元字符</h3><ul>
+<li>\d：[0-9]，表示一位数字，记忆方式 digit</li>
+<li>\D：[^0-9]，表示一位非数字</li>
+<li>\s：[\t\v\n\r\f]，表示空白符，包括空格，水平制表符（\t），垂直制表符（\v），换行符（\n），回车符（\r），换页符（\f），记忆方式 space character</li>
+<li>\S：[^\t\v\n\r\f]，表示非空白符</li>
+<li>\w：[0-9a-zA-Z]，表示数字大小写字母和下划线，记忆方式 word</li>
+<li>\W：[^0-9a-zA-Z]，表示非单词字符</li>
 </ul>
-
+<h3 id="2-5-标志字符"><a href="#2-5-标志字符" class="headerlink" title="2.5 标志字符"></a>2.5 标志字符</h3><ul>
+<li>g : 全局搜索 记忆方式global</li>
+<li>i ：不区分大小写 记忆方式 ignore</li>
+<li>m ：多行搜索</li>
+<li>y : 粘滞修饰符</li>
+</ul>
+<hr>
+<h2 id="3-ES6新增"><a href="#3-ES6新增" class="headerlink" title="3. ES6新增"></a>3. ES6新增</h2><h3 id="3-1-正则表达式的复制"><a href="#3-1-正则表达式的复制" class="headerlink" title="3.1 正则表达式的复制"></a>3.1 正则表达式的复制</h3><p>可以指定第二个参数，为正则表达式指定一个修饰符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let re1 = /ab/i;</span><br><span class="line">let re2 = new RegExp(re1,g);</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-2-flags属性"><a href="#3-2-flags属性" class="headerlink" title="3.2 flags属性"></a>3.2 flags属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let re = /ab/g;</span><br><span class="line">console.log(re.source);  // ab</span><br><span class="line">console.log(re.flags);   // g</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="4-示例"><a href="#4-示例" class="headerlink" title="4. 示例"></a>4. 示例</h2><h3 id="4-1-将”background-image-width”转为”backgroundImageWidth”"><a href="#4-1-将”background-image-width”转为”backgroundImageWidth”" class="headerlink" title="4.1 将”background-image-width”转为”backgroundImageWidth”"></a>4.1 将”background-image-width”转为”backgroundImageWidth”</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const str = &quot;background-image-width&quot;;</span><br><span class="line">function toCamel(str)&#123;</span><br><span class="line">	const re = /-(\w)/g;</span><br><span class="line">	return str.replace(re,function(all,$1)&#123;</span><br><span class="line">		return  $1.toUpperCase();</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line">console.log(toCamel(str));  // backgroundImageWidth</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-驼峰转中划线"><a href="#4-2-驼峰转中划线" class="headerlink" title="4.2 驼峰转中划线"></a>4.2 驼峰转中划线</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;marginTop&quot;.replace(/([a-z])([A-Z])/,&quot;$1-$2&quot;).toLowerCase());  // margin-top</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-去掉字符串前后的空格"><a href="#4-3-去掉字符串前后的空格" class="headerlink" title="4.3 去掉字符串前后的空格"></a>4.3 去掉字符串前后的空格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function trim(str) &#123;</span><br><span class="line"> return str.replace(/(^\s*)|(\s*$)/g, &quot;&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -408,9 +424,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/前端性能优化/" rel="tag"><i class="fa fa-tag"></i>
+            <a href="/tags/正则表达式/" rel="tag"><i class="fa fa-tag"></i>
 
- 前端性能优化</a>
+ 正则表达式</a>
           
         </div>
       
@@ -423,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/23/css3选择器/" rel="next" title="CSS3选择器">
-                <i class="fa fa-chevron-left"></i> CSS3选择器
+              <a href="/2018/04/04/弄懂this、call与apply/" rel="next" title="弄懂this、call与apply">
+                <i class="fa fa-chevron-left"></i> 弄懂this、call与apply
               </a>
             
           </div>
@@ -432,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/31/原始类型与引用类型/" rel="prev" title="原始类型与引用类型">
-                原始类型与引用类型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
