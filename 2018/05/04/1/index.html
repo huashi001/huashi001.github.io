@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端性能优化," />
+  <meta name="keywords" content="D3.js," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1. 网页内容 减少Dom数量 减少Http请求次数 减少DNS查询次数 缓存Ajax 减少或者不使用iframe">
-<meta name="keywords" content="前端性能优化">
+<meta name="description" content="D3的全称是Data-Driven Document,直译为“数据驱动的文档”。Data-Driven即由数据来决定绘图流程的程序设计模型。  1. D3的优势 D3相对比较底层，但是又使代码足够简洁。 D3更像是数学库，但又为绘图提供了支持。">
+<meta name="keywords" content="D3.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端性能优化(1)">
-<meta property="og:url" content="http://yoursite.com/2018/03/26/前端性能优化/index.html">
+<meta property="og:title" content="D3.js简介">
+<meta property="og:url" content="http://yoursite.com/2018/05/04/1/index.html">
 <meta property="og:site_name" content="Chunhuaqiushi">
-<meta property="og:description" content="1. 网页内容 减少Dom数量 减少Http请求次数 减少DNS查询次数 缓存Ajax 减少或者不使用iframe">
+<meta property="og:description" content="D3的全称是Data-Driven Document,直译为“数据驱动的文档”。Data-Driven即由数据来决定绘图流程的程序设计模型。  1. D3的优势 D3相对比较底层，但是又使代码足够简洁。 D3更像是数学库，但又为绘图提供了支持。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T12:34:23.477Z">
+<meta property="og:updated_time" content="2018-05-04T01:14:57.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端性能优化(1)">
-<meta name="twitter:description" content="1. 网页内容 减少Dom数量 减少Http请求次数 减少DNS查询次数 缓存Ajax 减少或者不使用iframe">
+<meta name="twitter:title" content="D3.js简介">
+<meta name="twitter:description" content="D3的全称是Data-Driven Document,直译为“数据驱动的文档”。Data-Driven即由数据来决定绘图流程的程序设计模型。  1. D3的优势 D3相对比较底层，但是又使代码足够简洁。 D3更像是数学库，但又为绘图提供了支持。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/26/前端性能优化/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/04/1/"/>
 
 
 
 
 
-  <title>前端性能优化(1) | Chunhuaqiushi</title>
+  <title>D3.js简介 | Chunhuaqiushi</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/前端性能优化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/04/1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huashi">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端性能优化(1)</h1>
+          <h1 class="post-title" itemprop="name headline">D3.js简介</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T13:22:47+08:00">
-                2018-03-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-04T09:13:11+08:00">
+                2018-05-04
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Web开发</span>
+                  <a href="/categories/学习D3-js/" itemprop="url" rel="index">
+                    <span itemprop="name">学习D3.js</span>
                   </a>
                 </span>
 
@@ -342,34 +342,53 @@
       
 
       
-        <h2 id="1-网页内容"><a href="#1-网页内容" class="headerlink" title="1. 网页内容"></a>1. 网页内容</h2><ul>
-<li>减少Dom数量</li>
-<li>减少Http请求次数</li>
-<li>减少DNS查询次数</li>
-<li>缓存Ajax</li>
-<li>减少或者不使用iframe<a id="more"></a></li>
-<li>提前加载</li>
-<li>避免404<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">减少或者不使用iframe的原因：</span><br><span class="line">  (1)阻塞onload事件</span><br><span class="line">  (2)耗费性能</span><br><span class="line">  (3)iframe 中的资源有可能占用了可用连接而阻塞了主页面的资源加载</span><br></pre></td></tr></table></figure>
-</li>
+        <blockquote>
+<p>D3的全称是Data-Driven Document,直译为“数据驱动的文档”。Data-Driven即由数据来决定绘图流程的程序设计模型。</p>
+</blockquote>
+<h3 id="1-D3的优势"><a href="#1-D3的优势" class="headerlink" title="1. D3的优势"></a>1. D3的优势</h3><ul>
+<li>D3相对比较底层，但是又使代码足够简洁。</li>
+<li>D3更像是数学库，但又为绘图提供了支持。<a id="more"></a></li>
+<li>D3封装了很多操作，但又在开发者最渴望控制的地方给予了足够的自由</li>
 </ul>
-<h2 id="2-CSS优化"><a href="#2-CSS优化" class="headerlink" title="2. CSS优化"></a>2. CSS优化</h2><ul>
-<li>将样式表置顶</li>
-<li>避免CSS表达式</li>
-<li>使用link代替@import</li>
-<li>注意CSS书写顺序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CSS书写顺序：</span><br><span class="line">  1. 位置属性(position, top, right, z-index,</span><br><span class="line">display, float等)　　</span><br><span class="line">  2. 大小(width, height, padding, margin)　</span><br><span class="line">  3. 文字系列(font, line-height, letter-spacing,</span><br><span class="line">color, text-align等)　</span><br><span class="line">  4. 背景(background, border等)　</span><br><span class="line">  5. 其他(animation, transition等)</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="2-D3的特性"><a href="#2-D3的特性" class="headerlink" title="2. D3的特性"></a>2. D3的特性</h3><ul>
+<li>数据与元素捆绑的特性</li>
+<li>计算与绘图相对独立的特性</li>
+<li>链式语法</li>
+<li>强大的图形计算能力</li>
+<li>同时支持svg和canvas</li>
 </ul>
-<h2 id="3-JavaScript"><a href="#3-JavaScript" class="headerlink" title="3. JavaScript"></a>3. JavaScript</h2><ul>
-<li>脚本置底</li>
-<li>减少Dom操作，使用变量保存Dom对象</li>
-<li>javascript代码注意：谨慎使用with,避免使用eval Function函数,减少作用域链查找</li>
-<li>将JavaScript和CSS作为外部文件来引用：在实际应用中使用外部文件可以提高页面速度，因为JavaScript和CSS文件都能在浏览器中产生缓存</li>
+<h3 id="3-数据可视化的过程（七个步骤）"><a href="#3-数据可视化的过程（七个步骤）" class="headerlink" title="3. 数据可视化的过程（七个步骤）"></a>3. 数据可视化的过程（七个步骤）</h3><ul>
+<li>获取——Acquire</li>
+<li>分析——Parse</li>
+<li>过滤——Filter</li>
+<li>挖掘——Mine</li>
+<li>表现——Represent</li>
+<li>改善——Refine</li>
+<li>交互——Interact</li>
 </ul>
-<h2 id="4-图片优化"><a href="#4-图片优化" class="headerlink" title="4. 图片优化"></a>4. 图片优化</h2><ul>
-<li>优化图片</li>
-<li>优化CSS Sprites</li>
-<li>不要在HTML中使用缩放图片</li>
-<li>favicon.ico要小而且可缓存</li>
+<blockquote>
+<p>D3主要为表现、改善、交互这三部分提供方便。</p>
+</blockquote>
+<h3 id="4-数据可视化简介"><a href="#4-数据可视化简介" class="headerlink" title="4. 数据可视化简介"></a>4. 数据可视化简介</h3><h4 id="4-1-目的"><a href="#4-1-目的" class="headerlink" title="4.1 目的"></a>4.1 目的</h4><blockquote>
+<p>数据可视化的目的，是要对数据进行可视化处理，以使得能够明确地、有效地传递信息。</p>
+</blockquote>
+<h4 id="4-2-构成要素"><a href="#4-2-构成要素" class="headerlink" title="4.2 构成要素"></a>4.2 构成要素</h4><p>表现数据的方式很多，其中有一些共通的视觉要素。</p>
+<ul>
+<li>坐标</li>
+<li>大小</li>
+<li>色彩</li>
+<li>标签</li>
+<li>关联</li>
+</ul>
+<h4 id="4-3-数据可视化与信息可视化"><a href="#4-3-数据可视化与信息可视化" class="headerlink" title="4.3 数据可视化与信息可视化"></a>4.3 数据可视化与信息可视化</h4><p>前者是对数字信息进行可视化，后者是对数字信息和非数字信息（人类的文字语言）进行可视化。</p>
+<h3 id="5-图表种类"><a href="#5-图表种类" class="headerlink" title="5. 图表种类"></a>5. 图表种类</h3><ul>
+<li>柱形图</li>
+<li>散点图</li>
+<li>折线图</li>
+<li>饼状图</li>
+<li>弦图</li>
+<li>力导向图</li>
+<li>树图</li>
 </ul>
 
       
@@ -398,9 +417,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/前端性能优化/" rel="tag"><i class="fa fa-tag"></i>
+            <a href="/tags/D3-js/" rel="tag"><i class="fa fa-tag"></i>
 
- 前端性能优化</a>
+ D3.js</a>
           
         </div>
       
@@ -413,8 +432,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/23/css3选择器/" rel="next" title="CSS3选择器">
-                <i class="fa fa-chevron-left"></i> CSS3选择器
+              <a href="/2018/04/22/正则表达式2/" rel="next" title="正则表达式(2)">
+                <i class="fa fa-chevron-left"></i> 正则表达式(2)
               </a>
             
           </div>
@@ -422,10 +441,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/31/原始类型与引用类型/" rel="prev" title="原始类型与引用类型">
-                原始类型与引用类型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
