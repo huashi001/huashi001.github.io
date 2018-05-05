@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="D3的全称是Data-Driven Document,直译为“数据驱动的文档”。Data-Driven即由数据来决定绘图流程的程序设计模型。  1. D3的优势 D3相对比较底层，但是又使代码足够简洁。 D3更像是数学库，但又为绘图提供了支持。">
+<meta name="description" content="数据绑定（Data-join）是D3的核心知识，是D3之所以被称为Data-Driven的原因。它主要是为了解决两个问题：（1）如何根据数据添加元素，（2）当数据更新时，如何修改元素。  1. 选择元素 select： 返回匹配选择器的第一个元素 selectAll： 返回匹配选择器的所有元素">
 <meta name="keywords" content="D3.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="D3.js简介">
-<meta property="og:url" content="http://yoursite.com/2018/05/04/1/index.html">
+<meta property="og:title" content="D3基础：选择集与数据">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/d3选择集与数据/index.html">
 <meta property="og:site_name" content="Chunhuaqiushi">
-<meta property="og:description" content="D3的全称是Data-Driven Document,直译为“数据驱动的文档”。Data-Driven即由数据来决定绘图流程的程序设计模型。  1. D3的优势 D3相对比较底层，但是又使代码足够简洁。 D3更像是数学库，但又为绘图提供了支持。">
+<meta property="og:description" content="数据绑定（Data-join）是D3的核心知识，是D3之所以被称为Data-Driven的原因。它主要是为了解决两个问题：（1）如何根据数据添加元素，（2）当数据更新时，如何修改元素。  1. 选择元素 select： 返回匹配选择器的第一个元素 selectAll： 返回匹配选择器的所有元素">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-04T01:14:57.871Z">
+<meta property="og:updated_time" content="2018-05-05T01:59:54.792Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="D3.js简介">
-<meta name="twitter:description" content="D3的全称是Data-Driven Document,直译为“数据驱动的文档”。Data-Driven即由数据来决定绘图流程的程序设计模型。  1. D3的优势 D3相对比较底层，但是又使代码足够简洁。 D3更像是数学库，但又为绘图提供了支持。">
+<meta name="twitter:title" content="D3基础：选择集与数据">
+<meta name="twitter:description" content="数据绑定（Data-join）是D3的核心知识，是D3之所以被称为Data-Driven的原因。它主要是为了解决两个问题：（1）如何根据数据添加元素，（2）当数据更新时，如何修改元素。  1. 选择元素 select： 返回匹配选择器的第一个元素 selectAll： 返回匹配选择器的所有元素">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/04/1/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/05/d3选择集与数据/"/>
 
 
 
 
 
-  <title>D3.js简介 | Chunhuaqiushi</title>
+  <title>D3基础：选择集与数据 | Chunhuaqiushi</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/04/1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/d3选择集与数据/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huashi">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">D3.js简介</h1>
+          <h1 class="post-title" itemprop="name headline">D3基础：选择集与数据</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-04T09:13:11+08:00">
-                2018-05-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T09:58:52+08:00">
+                2018-05-05
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习D3-js/" itemprop="url" rel="index">
-                    <span itemprop="name">学习D3.js</span>
+                  <a href="/categories/D3-js/" itemprop="url" rel="index">
+                    <span itemprop="name">D3.js</span>
                   </a>
                 </span>
 
@@ -343,53 +343,93 @@
 
       
         <blockquote>
-<p>D3的全称是Data-Driven Document,直译为“数据驱动的文档”。Data-Driven即由数据来决定绘图流程的程序设计模型。</p>
+<p>数据绑定（Data-join）是D3的核心知识，是D3之所以被称为Data-Driven的原因。它主要是为了解决两个问题：（1）如何根据数据添加元素，（2）当数据更新时，如何修改元素。</p>
 </blockquote>
-<h3 id="1-D3的优势"><a href="#1-D3的优势" class="headerlink" title="1. D3的优势"></a>1. D3的优势</h3><ul>
-<li>D3相对比较底层，但是又使代码足够简洁。</li>
-<li>D3更像是数学库，但又为绘图提供了支持。<a id="more"></a></li>
-<li>D3封装了很多操作，但又在开发者最渴望控制的地方给予了足够的自由</li>
+<h2 id="1-选择元素"><a href="#1-选择元素" class="headerlink" title="1. 选择元素"></a>1. 选择元素</h2><ul>
+<li>select： 返回匹配选择器的第一个元素</li>
+<li>selectAll： 返回匹配选择器的所有元素<a id="more"></a></li>
 </ul>
-<h3 id="2-D3的特性"><a href="#2-D3的特性" class="headerlink" title="2. D3的特性"></a>2. D3的特性</h3><ul>
-<li>数据与元素捆绑的特性</li>
-<li>计算与绘图相对独立的特性</li>
-<li>链式语法</li>
-<li>强大的图形计算能力</li>
-<li>同时支持svg和canvas</li>
-</ul>
-<h3 id="3-数据可视化的过程（七个步骤）"><a href="#3-数据可视化的过程（七个步骤）" class="headerlink" title="3. 数据可视化的过程（七个步骤）"></a>3. 数据可视化的过程（七个步骤）</h3><ul>
-<li>获取——Acquire</li>
-<li>分析——Parse</li>
-<li>过滤——Filter</li>
-<li>挖掘——Mine</li>
-<li>表现——Represent</li>
-<li>改善——Refine</li>
-<li>交互——Interact</li>
-</ul>
+<p>参数都是CSS选择器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d3.select(&quot;body&quot;);</span><br><span class="line">d3.select(&quot;.box&quot;);</span><br><span class="line">d3.select(&quot;#div1&quot;);</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>D3主要为表现、改善、交互这三部分提供方便。</p>
+<p>注意： 符合一个选择器元素的可能有多个，但select只选择第一个。如果要选择符合选择器的所有元素，使用selectAll。</p>
 </blockquote>
-<h3 id="4-数据可视化简介"><a href="#4-数据可视化简介" class="headerlink" title="4. 数据可视化简介"></a>4. 数据可视化简介</h3><h4 id="4-1-目的"><a href="#4-1-目的" class="headerlink" title="4.1 目的"></a>4.1 目的</h4><blockquote>
-<p>数据可视化的目的，是要对数据进行可视化处理，以使得能够明确地、有效地传递信息。</p>
+<h2 id="2-选择集"><a href="#2-选择集" class="headerlink" title="2. 选择集"></a>2. 选择集</h2><blockquote>
+<p>d3.select和d3.selectAll返回的对象称为选择集（selection），添加、修改、删除属性都得用选择集。选择集还是数据绑定的受体。</p>
 </blockquote>
-<h4 id="4-2-构成要素"><a href="#4-2-构成要素" class="headerlink" title="4.2 构成要素"></a>4.2 构成要素</h4><p>表现数据的方式很多，其中有一些共通的视觉要素。</p>
+<h3 id="2-1-查看状态"><a href="#2-1-查看状态" class="headerlink" title="2.1 查看状态"></a>2.1 查看状态</h3><ul>
+<li>selection.empty(): 如果选择集为空，则返回true；否则返回false。</li>
+<li>selection.node(): 返回第一个非空元素，如果选择集为空，返回null。</li>
+<li>selection.size(): 返回选择集中的元素个数。</li>
+</ul>
+<h3 id="2-2-设定和获取属性"><a href="#2-2-设定和获取属性" class="headerlink" title="2.2 设定和获取属性"></a>2.2 设定和获取属性</h3><ul>
+<li><p>seletion.attr(name[,value])</p>
+<p>设置或获取选择集的属性。</p>
+</li>
+<li><p>selection.classed(name[,value])</p>
+<p>设定或获取选择集的CSS类，name是类名，value是一个布尔值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d3.select(&quot;p&quot;)</span><br><span class="line">    .classed(&quot;box&quot;,true)    // 开启box类</span><br><span class="line">    .classed(&quot;big&quot;,false);  // 不开启big类</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>selection.style(name[,value[,priority]])</p>
+<p>设定或获取选择集的样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">d3.select(&quot;p&quot;)</span><br><span class="line">    .style(&quot;color&quot;,&quot;red&quot;)</span><br><span class="line">    .style(&quot;font-size&quot;,&quot;14px&quot;); //单个样式</span><br><span class="line"></span><br><span class="line">d3.select(&quot;div&quot;)</span><br><span class="line">    .style(&#123;&quot;color&quot;,&quot;red&quot;;&quot;width&quot;:&quot;400px&quot;&#125;); //使用对象形式</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>selection.property(name[,value])</p>
+<p>设定或获取选择集的属性，name是属性名，value是属性值。<br>有部分属性不能用attr()设定和获取，最典型的就是文本输入框的value属性。</p>
+</li>
+<li><p>selection.text([value])</p>
+<p>设定或获取选择集的文本内容。</p>
+</li>
+<li><p>selection.html([value])</p>
+<p> 设定或获取选择集的内部HTML内容。</p>
+</li>
+</ul>
+<h2 id="3-添加、插入和删除"><a href="#3-添加、插入和删除" class="headerlink" title="3. 添加、插入和删除"></a>3. 添加、插入和删除</h2><blockquote>
+<p>选择集可以添加、插入、删除元素。</p>
+</blockquote>
 <ul>
-<li>坐标</li>
-<li>大小</li>
-<li>色彩</li>
-<li>标签</li>
-<li>关联</li>
+<li><p>selection.append(name)</p>
+<p>在选择集的末尾添加一个元素，name为元素名称。</p>
+</li>
+<li><p>selection.insert(name[,before])</p>
+<p>在选择集中的指定元素之前插入一个元素，name是被插入的元素名称，before是CSS选择器的名称。</p>
+</li>
+<li><p>selection.remove()</p>
+<p>删除选择集中的元素。</p>
+</li>
 </ul>
-<h4 id="4-3-数据可视化与信息可视化"><a href="#4-3-数据可视化与信息可视化" class="headerlink" title="4.3 数据可视化与信息可视化"></a>4.3 数据可视化与信息可视化</h4><p>前者是对数字信息进行可视化，后者是对数字信息和非数字信息（人类的文字语言）进行可视化。</p>
-<h3 id="5-图表种类"><a href="#5-图表种类" class="headerlink" title="5. 图表种类"></a>5. 图表种类</h3><ul>
-<li>柱形图</li>
-<li>散点图</li>
-<li>折线图</li>
-<li>饼状图</li>
-<li>弦图</li>
-<li>力导向图</li>
-<li>树图</li>
+<h2 id="4-数据绑定"><a href="#4-数据绑定" class="headerlink" title="4. 数据绑定"></a>4. 数据绑定</h2><blockquote>
+<p>数据绑定（Data-Join）是D3处理选择集和数据的方法，是D3之所以被称为D3的原因。</p>
+</blockquote>
+<p>d3.select和d3.selectAll返回选择集，选择集上是没有数据的。数据绑定就是使选择集“拥有”数据，有两个方法：</p>
+<ul>
+<li><p>selection.datum([value])</p>
+<p>选择集中的每一个元素都绑定相同的数据value。</p>
+</li>
+<li><p>selection.data(values[,key])</p>
+<p>选择集中的每一个元素分别绑定数组values的每一项。key是一个键函数，用于指定绑定数组时的对应规则。</p>
+</li>
 </ul>
+<h3 id="4-1-datum的工作过程"><a href="#4-1-datum的工作过程" class="headerlink" title="4.1 datum的工作过程"></a>4.1 datum的工作过程</h3><p>selection.datum()是将一个数据绑定到选择集的所有元素上，每个元素都拥有相同的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var p = d3.select(&quot;body&quot;).selectAll(&quot;p&quot;);</span><br><span class="line">p.datum(&quot;huashi&quot;)</span><br><span class="line"> .text(function(d,i)&#123;</span><br><span class="line">   return d+&quot; &quot;+i;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>text()的参数是一个无名函数function(d,i)，其中的两个参数分别代表（datum）和索引（index）。</p>
+<h3 id="4-2-data的工作过程"><a href="#4-2-data的工作过程" class="headerlink" title="4.2 data的工作过程"></a>4.2 data的工作过程</h3><p>selection.data()能将数组各项分别绑定到选择集的各个元素上，并且能指定绑定的规则。</p>
+<p>data提供了当数组长度与元素数量不一致时的处理方案：</p>
+<ul>
+<li>数组长度&gt;元素数量：为多余数据预留元素位置，以便将来插入新元素</li>
+<li>数组长度&lt;元素数量：能获取多余元素的位置，以便将来删除</li>
+</ul>
+<p>能够处理这种问题的方法被称为：Data-Join。</p>
+<p>与Data-Join相关的三个词：</p>
+<ul>
+<li>Update: 代表已经存在的元素，将修改这些元素的属性。</li>
+<li>Enter：代表丢失的元素，它们即将加入选择集，你需要加入它们并赋予它们属性。</li>
+<li>Exit：代表多余的元素，你将会删除它们。</li>
+</ul>
+<h2 id="4-5-update、enter、exit"><a href="#4-5-update、enter、exit" class="headerlink" title="4.5 update、enter、exit"></a>4.5 update、enter、exit</h2><ul>
+<li>update：修改attr属性</li>
+<li>enter：给选择集append足够的元素</li>
+<li>exit：删除多余的元素</li>
+</ul>
+<h3 id="数据更新时的处理模板"><a href="#数据更新时的处理模板" class="headerlink" title="数据更新时的处理模板"></a>数据更新时的处理模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let dataset = [10,20,30];</span><br><span class="line">let p = d3.select(&quot;body&quot;).selectAll(&quot;p&quot;);</span><br><span class="line">//绑定数据后，分别返回update、enter、exit部分</span><br><span class="line">var update = p.data(dataset);</span><br><span class="line">var enter = update.enter();</span><br><span class="line">var exit = update.exit();</span><br><span class="line">// 1. update部分的处理方法</span><br><span class="line">update.text(function(d)&#123;return d;&#125;);</span><br><span class="line">//2. enter部分的处理方法</span><br><span class="line">enter.append(&quot;p&quot;)</span><br><span class="line">    .text(function(d)&#123;return d;&#125;);</span><br><span class="line">//3. exit部分的处理方法</span><br><span class="line">exit.remove();</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -432,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/22/正则表达式2/" rel="next" title="正则表达式(2)">
-                <i class="fa fa-chevron-left"></i> 正则表达式(2)
+              <a href="/2018/05/04/d3简介/" rel="next" title="D3.js简介">
+                <i class="fa fa-chevron-left"></i> D3.js简介
               </a>
             
           </div>
@@ -512,7 +552,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
